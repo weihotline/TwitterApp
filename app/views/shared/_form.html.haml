@@ -1,0 +1,18 @@
+- action_url = (new_user ? users_url : session_url)
+- button_label = (new_user ? "Sign up »" : "Log in »")
+
+.container
+  %form{ :action => "#{action_url}", :method => "POST" }
+    %fieldset
+      %input{ :type => "hidden",
+              :name => "authenticity_token",
+              :value => "#{form_authenticity_token}" }
+      %input{ :type => "text",
+              :placeholder => "Email",
+              :name => "user[email]",
+              :value => "#{@user.email}" }
+      = input_for("#{@user.username}") if new_user
+      %input{ :type => "password",
+              :placeholder => "Password",
+              :name => "user[password]" }
+      %button{ :type => "submit" }="#{button_label}"

@@ -1,0 +1,6 @@
+- if flash[:errors]
+  %div
+    = flash[:erorrs].join('.<br>').html_safe
+- elsif flash[:notice]
+  %div
+    = flash[:notice].join('.<br>').html_safe
