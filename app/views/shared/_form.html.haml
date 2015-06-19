@@ -2,6 +2,7 @@
 - button_label = (new_user ? "Sign up »" : "Log in »")
 
 .container
+  = render "shared/error"
   %form{ :action => "#{action_url}", :method => "POST" }
     %fieldset
       %input{ :type => "hidden",
