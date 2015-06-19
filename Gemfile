@@ -34,8 +34,12 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
 
-  # Rspec-rails
+  # Use Rspec-rails
   gem 'rspec-rails'
+end
+
+group :test do
+  'capybara'
 end
 
 group :development, :test do
