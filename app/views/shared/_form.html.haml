@@ -12,8 +12,9 @@
               :placeholder => "Email",
               :name => "user[email]",
               :value => "#{@user.email}" }
-      = input_for("#{@user.username}") if new_user
       %input{ :type => "password",
               :placeholder => "Password",
               :name => "user[password]" }
+      = input_for("#{@user.username}") if new_user
       %button{ :type => "submit" }="#{button_label}"
+  = button_to("Sign up »", new_user_url, :method => :get) unless new_user
