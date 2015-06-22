@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }, allow_nil: true
   validates :session_token, :username, uniqueness: true
 
+  has_many :tweets, class_name: "Tweet", foreign_key: :author_id, inverse_of: :author
+
   has_many :in_follows, class_name: "Follow", foreign_key: :followee_id
   has_many :out_follows, class_name: "Follow", foreign_key: :follower_id
 
