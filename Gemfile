@@ -39,7 +39,9 @@ group :development do
 end
 
 group :test do
-  'capybara'
+  gem 'capybara'
+  gem 'factory_girl'
+  gem 'faker'
 end
 
 group :development, :test do
