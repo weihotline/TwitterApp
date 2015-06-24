@@ -1,1 +1,1 @@
-json.array! @out_follows, :id, :followee_id
+json.array! @follows, :id, :followee_id

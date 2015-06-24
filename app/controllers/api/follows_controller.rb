@@ -1,7 +1,7 @@
 module Api
   class FollowsController < ApiController
     def index
-      @follow = current_user.out_follows
+      @follows = current_user.out_follows
 
       render :index
     end
