@@ -1,0 +1,17 @@
+{
+  "name": "TwitterApp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/weihotline/TwitterApp",
+  "authors": [
+    "Weih Li <wli@castlighthealth.com>"
+  ],
+  "description": "a simple twitter clone with angular front-end",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
