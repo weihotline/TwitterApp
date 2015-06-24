@@ -1,5 +1,8 @@
 - action_url = (new_user ? users_url : session_url)
-- button_label = (new_user ? "Sign up »" : "Log in »")
+- redirect_url = (new_user ? new_session_url : new_user_url)
+
+- submit_btn_label = (new_user ? "Sign up »" : "Log in »")
+- redirect_btn_label = (new_user ? "Log in »" : "Sign up »")
 
 .container
   = render "shared/error"
@@ -16,5 +19,5 @@
               :placeholder => "Password",
               :name => "user[password]" }
       = input_for("#{@user.username}") if new_user
-      %button{ :type => "submit" }="#{button_label}"
-  = button_to("Sign up »", new_user_url, :method => :get) unless new_user
+      %button{ :type => "submit" }="#{submit_btn_label}"
+  = button_to(redirect_btn_label, redirect_url, :method => :get)
