@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @users = User.pluck(:username)
+
+    render json: @users
+  end
+
   def create
     @user = User.new(user_params)
 
