@@ -9,13 +9,14 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 8 }, allow_nil: true
   validates :session_token, :username, uniqueness: true
 
-  has_many :tweets, class_name: "Tweet", foreign_key: :author_id, inverse_of: :author
-
   has_many :in_follows, class_name: "Follow", foreign_key: :followee_id
   has_many :out_follows, class_name: "Follow", foreign_key: :follower_id
 
   has_many :followers, through: :in_follows, source: :follower
   has_many :followees, through: :out_follows, source: :followee
+
+  has_many :tweets, class_name: "Tweet", foreign_key: :author_id, inverse_of: :author
+  has_many :following_tweets, through: :followees, source: :tweets
 
   after_initialize :ensure_session_token
 
@@ -41,10 +42,6 @@ class User < ActiveRecord::Base
     self.session_token = self.class.generate_session_token
     self.save!
     self.session_token
-  end
-
-  def self_follow
-    Follow.create!(followee_id: self.id, follower_id: self.id)
   end
 
   def follows?(other_user)

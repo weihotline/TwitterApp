@@ -7,10 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-50.times do
-  User.create(username: Faker::Name.name,
-              email: Faker::Internet.email,
-              password: Faker::Internet.password(8))
+50.times do |i|
+  user = User.create(username: Faker::Name.name,
+                     email: Faker::Internet.email,
+                     password: Faker::Internet.password(8))
+  Follow.self_follow(user)
 end
 
 120.times do

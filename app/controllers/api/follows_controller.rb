@@ -1,7 +1,13 @@
 module Api
   class FollowsController < ApiController
+    def index
+      @follow = current_user.out_follows
+
+      render :index
+    end
+
     def create
-      @follow = current_user.out_@follows.create!(
+      @follow = current_user.out_follows.create!(
         followee_id: params[:followee_id]
       )
 
@@ -13,12 +19,6 @@ module Api
       @follow.destroy!
 
       render json: @follow
-    end
-
-    def index
-      @follow = current_user.out_@follows
-
-      render :index
     end
   end
 end
