@@ -3,7 +3,7 @@ module Api
     def index
       @follows = current_user.out_follows
 
-      render :index
+      render json: @follows.as_json(only: [:id, :followee_id])
     end
 
     def create

@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.pluck(:id, :username)
+    @users = User.where.not(id: current_user.id)
 
-    render json: @users
+    render json: @users.as_json(only: [:id, :username])
   end
 
   def create
