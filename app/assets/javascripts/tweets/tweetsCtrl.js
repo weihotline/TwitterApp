@@ -5,6 +5,16 @@ angular.module('twitter')
   'tweets',
 
   function(tweets) {
-    this.tweets = tweets.tweets;
+    var self = this;
+
+    self.tweets = tweets.tweets;
+
+    self.addTweet = function() {
+      tweets.create({
+        content: self.content
+      });
+
+      self.content = '';
+    }
   }
 ]);

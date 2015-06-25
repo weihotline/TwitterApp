@@ -25,6 +25,7 @@ gem 'haml'
 # User Angular for front-end
 gem 'sprockets', '2.12.3'
 gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
 
 group :development do
   # Run 'annotate' in Terminal to add helpful comments to models.

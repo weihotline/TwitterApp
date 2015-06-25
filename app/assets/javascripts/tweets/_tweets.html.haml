@@ -1,5 +1,9 @@
 #tweets
+  %form{ "ng-submit" => "tc.addTweet()" }
+    %input{ :type => "text", "ng-model" => "tc.content" }
+    %button{ :type => "submit" }Tweet
   %ul
     %li{ "ng-repeat" => "tweet in tc.tweets" } |
       {{tweet.author}} |
-      {{tweet.updated_at}}  {{tweet.content}} |
+      {{tweet.updated_at}} |
+      {{tweet.content}} |

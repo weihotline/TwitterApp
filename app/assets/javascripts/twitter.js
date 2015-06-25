@@ -18,7 +18,7 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
 
         resolve: {
           twitterPromise: ['tweets', function(twitter) {
-            return twitter.getAll();
+            return twitter.fetchAll();
           }]
         }
 
