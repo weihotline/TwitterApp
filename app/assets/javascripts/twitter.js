@@ -12,7 +12,7 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
 
         url: '/tweets',
 
-        templateUrl: 'tweets/_tweets.html',
+        templateUrl: '_tweets.html',
 
         controller: 'TweetsCtrl as tc',
 
