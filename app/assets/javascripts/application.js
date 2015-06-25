@@ -4,3 +4,4 @@
 //= require twitter
 //= require_tree ../templates
 //= require_tree ./tweets
+//= require_tree ./users

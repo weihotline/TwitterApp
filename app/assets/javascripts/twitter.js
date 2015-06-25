@@ -12,7 +12,7 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
         controller: 'TweetsCtrl as tc',
 
         resolve: {
-          twitterPromise: ['tweetsSrv', function(twitter) {
+          tweetsPromise: ['tweetsSrv', function(twitter) {
             return twitter.fetchAll();
           }]
         }
@@ -27,12 +27,12 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
         controller: 'UsersCtrl as uc',
 
         resolve: {
-          twitterPromise: ['usersSrv', function(twitter) {
+          usersPromise: ['usersSrv', function(twitter) {
             return twitter.fetchAll();
           }]
         }
       });
 
-    $urlRouterProvider.otherwise('tweets');
+    $urlRouterProvider.otherwise('users');
   }
 );
