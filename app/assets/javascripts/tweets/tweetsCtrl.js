@@ -10,7 +10,7 @@ angular.module('twitter')
     self.tweets = tweetsSrv.tweets;
 
     self.addTweet = function() {
-      tweets.create({
+      tweetsSrv.create({
         content: self.content
       });
 

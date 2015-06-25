@@ -1,4 +1,7 @@
-angular.module('twitter', [ 'ui.router', 'templates' ])
+angular.module('twitter', [
+    'ui.router',
+    'templates'
+])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -33,6 +36,6 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
         }
       });
 
-    $urlRouterProvider.otherwise('users');
+    $urlRouterProvider.otherwise('tweets');
   }
 );
