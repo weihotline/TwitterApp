@@ -8,11 +8,15 @@ module Api
     end
 
     def create
-      @tweet = current_user.tweets.create!(
-        content: params[:content]
-      )
+      @tweet = current_user.tweets.new(tweet_params)
 
-      render json: @tweet
+      if @tweet.save
+        render :new_tweet
+      else
+        flash.now[:errors] ||= []
+        flash.now[:errors] << 'Invalid Tweet!'
+        render json: { message: 'Invalid Tweet!' }
+      end
     end
 
     def destroy
@@ -21,5 +25,10 @@ module Api
 
       render json: @tweet
     end
+
+    private
+      def tweet_params
+        params.require(:tweet).permit(:content)
+      end
   end
 end
