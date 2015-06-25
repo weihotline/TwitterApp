@@ -17,6 +17,20 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
           }]
         }
 
+      })
+      .state('users', {
+
+        url: '/users',
+
+        templateUrl: '_users.html',
+
+        controller: 'UsersCtrl as uc',
+
+        resolve: {
+          twitterPromise: ['usersSrv', function(twitter) {
+            return twitter.fetchAll();
+          }]
+        }
       });
 
     $urlRouterProvider.otherwise('tweets');
