@@ -1,11 +1,6 @@
 angular.module('twitter', [ 'ui.router', 'templates' ])
 
-.config([
-  '$stateProvider',
-
-  '$urlRouterProvider',
-
-  function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('tweets', {
@@ -17,7 +12,7 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
         controller: 'TweetsCtrl as tc',
 
         resolve: {
-          twitterPromise: ['tweets', function(twitter) {
+          twitterPromise: ['tweetsSrv', function(twitter) {
             return twitter.fetchAll();
           }]
         }
@@ -26,4 +21,4 @@ angular.module('twitter', [ 'ui.router', 'templates' ])
 
     $urlRouterProvider.otherwise('tweets');
   }
-]);
+);

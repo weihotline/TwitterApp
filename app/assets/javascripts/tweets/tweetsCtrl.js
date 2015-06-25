@@ -2,12 +2,12 @@ angular.module('twitter')
 
 .controller('TweetsCtrl', [
 
-  'tweets',
+  'tweetsSrv',
 
-  function(tweets) {
+  function(tweetsSrv) {
     var self = this;
 
-    self.tweets = tweets.tweets;
+    self.tweets = tweetsSrv.tweets;
 
     self.addTweet = function() {
       tweets.create({

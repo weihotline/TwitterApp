@@ -1,6 +1,7 @@
 angular.module('twitter')
 
-.factory('tweets',
+.factory('tweetsSrv',
+
   function($http) {
 
     var twitter = {
