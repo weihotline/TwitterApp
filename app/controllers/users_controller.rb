@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.pluck(:username)
+    @users = User.pluck(:id, :username)
 
     render json: @users
   end
