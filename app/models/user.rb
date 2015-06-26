@@ -29,6 +29,11 @@ class User < ActiveRecord::Base
     user.try(:is_password?, password) ? user : nil
   end
 
+  def self.find_who_to_follow_by_user(user)
+    followee_ids = User.last.out_follows.pluck(:followee_id)
+    User.where.not(id: followee_ids)
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

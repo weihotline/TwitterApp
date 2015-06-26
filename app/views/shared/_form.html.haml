@@ -1,23 +1,10 @@
-- action_url = (new_user ? users_url : session_url)
-- redirect_url = (new_user ? new_session_url : new_user_url)
-
-- submit_btn_label = (new_user ? "Sign up »" : "Log in »")
-- redirect_btn_label = (new_user ? "Log in »" : "Sign up »")
-
+- action_url, redirect_url = urls_for(new_user)
+- submit_btn_label, redirect_btn_label = labels_for(new_user)
 .container
-  = render "shared/error"
-  %form{ :action => "#{action_url}", :method => "POST" }
-    %fieldset
-      %input{ :type => "hidden",
-              :name => "authenticity_token",
-              :value => "#{form_authenticity_token}" }
-      %input{ :type => "text",
-              :placeholder => "Email",
-              :name => "user[email]",
-              :value => "#{@user.email}" }
-      %input{ :type => "password",
-              :placeholder => "Password",
-              :name => "user[password]" }
-      = input_for("#{@user.username}") if new_user
-      %button{ :type => "submit" }="#{submit_btn_label}"
+  = render :partial => "shared/error"
+  = form_for(@user, url: action_url) do |f|
+    = f.text_field :email, :placeholder => "Email"
+    = f.password_field :password, :placeholder => "Password"
+    = f.text_field :username, :placeholder => "Username" if new_user
+    = f.submit submit_btn_label
   = button_to(redirect_btn_label, redirect_url, :method => :get)

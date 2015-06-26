@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where.not(id: current_user.id)
+    @users = User.find_who_to_follow_by_user(current_user)
 
     render json: @users.as_json(only: [:id, :username])
   end
