@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_who_to_follow_by_user(user)
-    followee_ids = User.last.out_follows.pluck(:followee_id)
+    followee_ids = user.out_follows.pluck(:followee_id)
     User.where.not(id: followee_ids)
   end
 
