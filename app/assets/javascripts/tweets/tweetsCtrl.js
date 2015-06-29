@@ -5,6 +5,7 @@ angular.module('twitter')
   'tweetsSrv',
 
   function(tweetsSrv) {
+
     var self = this;
 
     self.tweets = tweetsSrv.tweets;

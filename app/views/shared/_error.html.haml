@@ -1,6 +1,6 @@
 - if flash[:errors]
-  %div
+  %div{ :class => "alert alert-warning animated fadeInUp" }
     = flash[:errors].join(".<br>").html_safe
 - elsif flash[:notice]
-  %div
+  %div{ :class => "alert alert-success animated fadeInUp" }
     = flash[:notice].join(".<br>").html_safe

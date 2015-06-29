@@ -3,6 +3,9 @@
   <ul>
     <li ng-repeat="user in uc.users">
       {{user.username}}
+      <button ng-click="uc.follow(user)">
+        {{user.beingFollowed ? 'Following' : 'Follow' }}
+      </button>
     </li>
   </ul>
 </div>
