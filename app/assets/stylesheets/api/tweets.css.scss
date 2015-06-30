@@ -1,3 +1,18 @@
-// Place all the styles related to the api/Tweets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#tweet-form {
+  margin: 10px;
+
+  textarea {
+    height: 100px;
+    resize: none;
+    margin-bottom: 10px;
+  }
+}
+
+.modal-header {
+  border-bottom: 0px;
+  padding-bottom: 0px;
+
+  h5 {
+    text-align: center;
+  }
+}

@@ -23,7 +23,7 @@ angular.module('twitter')
       },
 
       destroyFollow: function(follow) {
-        return $http.delete('/api/follows/' + follow.id)
+        return $http.delete('/api/follows/' + follow.id);
       }
     }
 

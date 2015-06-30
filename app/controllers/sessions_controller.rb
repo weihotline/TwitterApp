@@ -29,9 +29,6 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
 
-    respond_to do |format|
-      format.html { redirect_to new_session_url }
-      format.json { render json: { message: 'logged out' } }
-    end
+    render json: { message: 'logged out' }
   end
 end

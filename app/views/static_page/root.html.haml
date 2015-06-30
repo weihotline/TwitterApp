@@ -1,3 +1,7 @@
 %div{ "ng-app" => "twitter" }
-  = render :partial => "shared/error"
-  %ui-view
+  %div{ "ng-controller" => "SessionCtrl as session" }
+    = render :partial => "shared/error"
+    %button{ :id => "logout-btn", :class => "btn btn-default",
+              "ng-click" => "session.logout()" }
+      Log out
+    %ui-view

@@ -1,0 +1,27 @@
+%div
+  %button#tweet-btn.btn.btn-primary{ :type => "button", "data-toggle" => "modal", "data-target" => ".tweet-modal" }
+    Tweet
+
+  .modal.fade.tweet-modal{ :role => "dialog", "aria-labelledby" => "tweetModalLabel" }
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          %button.close{ :type => "button", "data-dismiss" => "modal", "aria-hidden" => "true" }×
+          %h5.modal-title
+            Compose new Tweet
+        .modal-body
+          %form#tweet-form{ :role => "form", :action => "", "ng-submit" => "tc.addTweet()" }
+            %textarea.form-control{ "ng-model" => "tc.content" }
+            %button.btn.btn-primary{ :type => "submit" }
+              Tweet
+
+  %a{ "ui-sref" => "users" }
+    Who to follow * View all
+  %ul#tweets
+    %li{ "ng-repeat" => "tweet in tc.tweets" }
+      %p
+        %strong
+          {{tweet.author}}
+        {{tc.calcTimeDiff(tweet.updated_at)}}
+      %p
+        {{tweet.content}}

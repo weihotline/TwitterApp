@@ -1,7 +1,11 @@
+//= require jquery
+//= require jquery_ujs
 //= require angular
 //= require angular-rails-templates
 //= require angular-ui-router
+//= require bootstrap/dist/js/bootstrap
 //= require twitter
 //= require_tree ../templates
 //= require_tree ./tweets
 //= require_tree ./users
+//= require_tree ./session
