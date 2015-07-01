@@ -31,9 +31,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-
-  # Use Rspec-rails
-  gem 'rspec-rails'
 end
 
 group :development, :test do
@@ -44,6 +41,9 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background.
   gem 'spring'
 
+  # Use Rspec-rails
+  gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'
   gem 'capybara'
   gem 'factory_girl'
