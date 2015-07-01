@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe User, type: :model do
   context "Session Token" do
     it "::generate_session_token (small chance this will fail)" do
       expect(User.generate_session_token).to_not eq(User.generate_session_token)

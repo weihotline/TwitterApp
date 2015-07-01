@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe User do
-  context "validations" do
+describe User, type: :model do
+  context "Validations" do
     it "should fail validations with empty attributes" do
       user = User.new
       expect(user).to_not be_valid

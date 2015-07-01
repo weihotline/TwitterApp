@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Tweet do
+describe Tweet, type: :model do
   let(:user) do
     stub_model User, email: "jc@example.com", username: "JC"
   end
@@ -17,4 +17,6 @@ describe Tweet do
   it "should have no following tweets for new user" do
     expect(Tweet.find_all_following_tweets_by_user(user)).to be_empty
   end
+
+  it { should belong_to(:author) }
 end

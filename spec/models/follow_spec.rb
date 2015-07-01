@@ -1,6 +1,15 @@
 require 'spec_helper'
 
-describe Follow do
+describe Follow, type: :model do
+  after(:all) do
+    User.destroy_all
+  end
+
+  it "::self_follow" do
+    user = User.create!(email: "jc@example.com", username: "John", password: "good-password")
+    expect(Follow.self_follow(user)).to be_valid
+  end
+
   it "should fail validations with empty attributes" do
     follow = Follow.new
     expect(follow).to_not be_valid
@@ -10,8 +19,6 @@ describe Follow do
     expect(follow.errors.messages[:follower]).to include 'can\'t be blank'
   end
 
-  it "::self_follow" do
-    user = User.create!(email: "jc@example.com", username: "John", password: "good-password")
-    expect(Follow.self_follow(user)).to be_valid
-  end
+  it { should belong_to(:follower) }
+  it { should belong_to(:followee) }
 end

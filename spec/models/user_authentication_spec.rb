@@ -1,14 +1,17 @@
 require 'spec_helper'
 
-describe User do
-  context "authentication" do
-    before do
+describe User, type: :model do
+  context "Authentication" do
+    before(:all) do
       @email = "js@example.com"
       @password = "good-password"
 
       @user = User.create!(email: @email, username: "John", password: @password)
     end
 
+    after(:all) do
+      User.destroy_all
+    end
 
     it "should fail if the user doesn't exist" do
       expect(User.find_by_credentials("fake@example.com", "faker-password")).to be_nil
