@@ -36,12 +36,6 @@ group :development do
   gem 'rspec-rails'
 end
 
-group :test do
-  gem 'capybara'
-  gem 'factory_girl'
-  gem 'faker'
-end
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -49,4 +43,9 @@ group :development, :test do
   gem 'web-console'
   # Spring speeds up development by keeping your application running in the background.
   gem 'spring'
+
+  gem 'rspec-collection_matchers'
+  gem 'capybara'
+  gem 'factory_girl'
+  gem 'faker'
 end
