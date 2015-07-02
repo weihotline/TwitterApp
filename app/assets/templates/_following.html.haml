@@ -1,8 +1,0 @@
-#following
-  %a{ "ui-sref" => "tweets" }
-    &lt;&lt; Tweets
-  %ul
-    %li.user{ "ng-repeat" => "user in fic.users" }
-      {{user.username}}
-      %button#follow-btn.btn.btn-default.btn-sm{ "ng-click" => "uc.follow(user)" }
-        {{user.beingFollowed ? 'Following' : 'Follow'}}

@@ -38,11 +38,11 @@ class UsersController < ApplicationController
   end
 
   def following
-    @out_follows = current_user.out_follows.includes(:followee)
+    @out_follows = Follow.find_out_follows_by_user(current_user)
   end
 
   def followers
-    @in_follows = current_user.in_follows.includes(:follower)
+    @in_follows = Follow.find_in_follows_by_user(current_user)
   end
 
   private

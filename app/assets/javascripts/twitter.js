@@ -34,6 +34,34 @@ angular.module('twitter', [
             return twitter.fetchAll('/users');
           }]
         }
+      })
+      .state('following', {
+
+        url: '/users/following',
+
+        templateUrl: '_users.html',
+
+        controller: 'UsersCtrl as uc',
+
+        resolve: {
+          usersPromise: ['usersSrv', function(twitter) {
+            return twitter.fetchAll('/users/following');
+          }]
+        }
+      })
+      .state('followers', {
+
+        url: '/users/followers',
+
+        templateUrl: '_users.html',
+
+        controller: 'UsersCtrl as uc',
+
+        resolve: {
+          usersPromise: ['usersSrv', function(twitter) {
+            return twitter.fetchAll('/users/followers');
+          }]
+        }
       });
 
     $urlRouterProvider.otherwise('tweets');
