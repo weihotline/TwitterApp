@@ -42,6 +42,7 @@ class UsersController < ApplicationController
   end
 
   def followers
+    @follows = current_user.out_follows.pluck(:id, :followee_id)
     @in_follows = Follow.find_in_follows_by_user(current_user)
   end
 

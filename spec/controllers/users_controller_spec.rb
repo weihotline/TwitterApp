@@ -23,5 +23,16 @@ describe UsersController, type: :controller do
       controller.sign_in(@user)
       expect(controller.signed_in?).to eq true
     end
+
+    it "should have the current_user to be the same as the user who just singed in" do
+      controller.sign_in(@user)
+      expect(@user).to eq(controller.current_user)
+    end
+
+    it "should be able to sign out" do
+      controller.sign_in(@user)
+      controller.sign_out
+      expect(controller.signed_in?).to eq false
+    end
   end
 end

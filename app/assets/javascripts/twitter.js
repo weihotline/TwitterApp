@@ -19,7 +19,6 @@ angular.module('twitter', [
             return twitter.fetchAll();
           }]
         }
-
       })
       .state('users', {
 

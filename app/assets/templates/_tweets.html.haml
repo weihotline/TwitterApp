@@ -15,16 +15,17 @@
             %button.btn.btn-primary{ :type => "submit" }
               Tweet
 
-  %a{ "ui-sref" => "users" }
-    Who to follow * View all
-  %i
-    &nbsp;|&nbsp;
-  %a{ "ui-sref" => "following" }
-    Following
-  %i
-    &nbsp;|&nbsp;
-  %a{ "ui-sref" => "followers" }
-    Followers
+  .nav-follows
+    %a{ "ui-sref" => "users" }
+      Who to follow * View all
+    %i
+      &nbsp;|&nbsp;
+    %a{ "ui-sref" => "following" }
+      Following
+    %i
+      &nbsp;|&nbsp;
+    %a{ "ui-sref" => "followers" }
+      Followers
   %ul#tweets
     %li{ "ng-repeat" => "tweet in tc.tweets" }
       %p

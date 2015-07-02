@@ -1,6 +1,7 @@
 #users
-  %a{ "ui-sref" => "tweets" }
-    &lt;&lt; Tweets
+  .nav-follows
+    %a{ "ui-sref" => "tweets" }
+      &lt;&lt; Tweets
   %ul
     %li.user{ "ng-repeat" => "user in uc.users" }
       {{user.username}}
