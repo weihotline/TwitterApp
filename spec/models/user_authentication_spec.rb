@@ -10,7 +10,7 @@ describe User, type: :model do
     end
 
     after(:all) do
-      User.destroy_all
+      User.last.destroy
     end
 
     it "should fail if the user doesn't exist" do

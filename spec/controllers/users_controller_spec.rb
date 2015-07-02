@@ -16,7 +16,7 @@ describe UsersController, type: :controller do
     end
 
     after(:all) do
-      User.destroy_all
+      User.last.destroy
     end
 
     it "should be able to sign in" do

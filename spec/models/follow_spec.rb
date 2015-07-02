@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Follow, type: :model do
   after(:all) do
-    User.destroy_all
+    User.last.destroy
   end
 
   it "::self_follow" do
