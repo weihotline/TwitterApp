@@ -37,6 +37,14 @@ class UsersController < ApplicationController
     render :edit
   end
 
+  def following
+    @out_follows = current_user.out_follows.includes(:followee)
+  end
+
+  def followers
+    @in_follows = current_user.in_follows.includes(:follower)
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :email, :password)

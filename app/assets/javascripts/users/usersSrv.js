@@ -10,8 +10,8 @@ angular.module('twitter')
 
       followId: "",
 
-      fetchAll: function() {
-        return $http.get('/users').then(function(resp) {
+      fetchAll: function(url) {
+        return $http.get(url).then(function(resp) {
           angular.copy(resp.data, twitter.users);
         });
       },

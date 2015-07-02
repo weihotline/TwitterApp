@@ -31,21 +31,7 @@ angular.module('twitter', [
 
         resolve: {
           usersPromise: ['usersSrv', function(twitter) {
-            return twitter.fetchAll();
-          }]
-        }
-      })
-      .state('following', {
-
-        url: '/following',
-
-        templateUrl: '_users.html',
-
-        controller: 'UsersCtrl as uc',
-
-        resolve: {
-          usersPromise: ['usersSrv', function(twitter) {
-            return twitter.fetchAll();
+            return twitter.fetchAll('/users');
           }]
         }
       });
