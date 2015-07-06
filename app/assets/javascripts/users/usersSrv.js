@@ -20,6 +20,7 @@ angular.module('twitter')
         return $http.post('/api/follows', follow).then(function(resp) {
           twitter.followId = resp.data.id;
         });
+
       },
 
       destroyFollow: function(follow) {
